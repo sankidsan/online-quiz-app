@@ -1,5 +1,4 @@
 
-
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import CreateQuiz from './components/CreateQuiz';
@@ -12,7 +11,8 @@ function App() {
   const [score, setScore] = useState(0);
 
   return (
-    <Router>
+   
+    <Router basename="/online-quiz-app">
       <div className="App">
         <header className="header">
           <h1>Online Quiz Platform</h1>
