@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+
+
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import CreateQuiz from './components/CreateQuiz';
+import TakeQuiz from './components/TakeQuiz';
+import Result from './components/Result';
+import './styles.css';
 
 function App() {
+  const [quizData, setQuizData] = useState([]);
+  const [score, setScore] = useState(0);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <header className="header">
+          <h1>Online Quiz Platform</h1>
+        </header>
+        <Routes>
+          <Route path="/" element={<CreateQuiz setQuizData={setQuizData} />} />
+          <Route path="/take-quiz" element={<TakeQuiz quizData={quizData} setScore={setScore} />} />
+          <Route path="/result" element={<Result score={score} totalQuestions={quizData.length} />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
