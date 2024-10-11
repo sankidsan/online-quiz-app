@@ -1,9 +1,9 @@
 
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import CreateQuiz from './components/CreateQuiz';
-import TakeQuiz from './components/TakeQuiz';
-import Result from './components/Result';
+import { BrowserRouter as Router, Routes, Route, Navigate  } from 'react-router-dom';
+import CreateQuiz from './online-quiz-app/components/CreateQuiz';
+import TakeQuiz from './online-quiz-app/components/TakeQuiz';
+import Result from './online-quiz-app/components/Result';
 import './styles.css';
 
 function App() {
@@ -22,6 +22,7 @@ function App() {
           <Route path="/" element={<CreateQuiz setQuizData={setQuizData} />} />
           <Route path="/take-quiz" element={<TakeQuiz quizData={quizData} setScore={setScore} />} />
           <Route path="/result" element={<Result score={score} totalQuestions={quizData.length} />} />
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
         </Router>
       </div>
