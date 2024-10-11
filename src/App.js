@@ -17,7 +17,7 @@ function App() {
         <header className="header">
           <h1>Online Quiz Platform</h1>
         </header>
-        <Router basename="/online-quiz-app">
+        <Router >
         <Routes>
           <Route path="/" element={<CreateQuiz setQuizData={setQuizData} />} />
           <Route path="/take-quiz" element={<TakeQuiz quizData={quizData} setScore={setScore} />} />
