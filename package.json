@@ -1,4 +1,4 @@
-{
+{ "home":"https//sankidsan.github.io/online-quiz-app",
   "name": "quizapplication",
   "version": "0.1.0",
   "private": true,
@@ -16,6 +16,8 @@
    
     "start": "react-scripts --openssl-legacy-provider start",
   "build": "react-scripts --openssl-legacy-provider build",
+  "predeploy":"npm run build",
+  "deploy":"gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
